@@ -1,0 +1,27 @@
+name: Dastardly Scan
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Dastardly Action Step
+        continue-on-error: true
+        uses: PortSwigger/dastardly-github-action@main
+        with:
+          target-url: 'https://demo.testfire.net/'
+
+      - name: Publish Test Report
+        if: always()
+        uses: mikepenz/action-junit-report@v3
+        with:
+          report_paths: .github/workflows/dastardly-report.xml
+          require_Tests: true 
+
+permissions:
+    contents: read
+    issues: read
+    checks: write
+    pull-requests: write
+    id-token: write
