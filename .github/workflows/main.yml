@@ -2,10 +2,11 @@ name: dastardly-scan
 
 on: 
   workflow_dispatch: {}
+  schedule:
+    - cron: '20 19 * * *'
 
 jobs:
-  dastardly-scan:
-    name: dastardly scan
+  schedule: 
     runs-on: ubuntu-latest
     steps:
       - name: Run Dastardly Action Step
@@ -17,7 +18,7 @@ jobs:
         if: always()
         uses: mikepenz/action-junit-report@v3
         with:
-          report_paths: '.github/workflows/dastardly-report.xml'
+          report_paths: '**/dastardly-report.xml'
           require_Tests: true
 permissions:
     contents: read
