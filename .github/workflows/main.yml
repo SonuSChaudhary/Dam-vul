@@ -1,4 +1,4 @@
-name: dastardly-scan
+name: New_dastardly-scan
 
 on: 
   schedule: ## Schedule the job to run at 12.am daily.
