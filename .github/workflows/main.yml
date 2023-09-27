@@ -19,3 +19,9 @@ jobs:
         with:
           report_paths: '**/dastardly-report.xml'
           require_Tests: true
+permissions:
+    contents: read
+    issues: read
+    checks: write
+    pull-requests: write
+    id-token: write
