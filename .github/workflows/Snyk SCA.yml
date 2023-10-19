@@ -3,16 +3,8 @@ name: Snyk Scan
 on:
   workflow_dispatch: {}
 
-permissions:
-  contents: read
-
 jobs:
   snyk:
-  name: snyk security scan
-    permissions:
-      contents: read 
-      security-events: write  
-      actions: read 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
